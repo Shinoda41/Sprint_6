@@ -3,8 +3,8 @@ from selenium.webdriver.common.by import By
 
 class OrderPageLocators:
 
-    UPPER_ORDER_BUTTON = (By.CLASS_NAME, 'Button_Button__ra12g')  #  Вверхняя кнопка заказа
-    LOWER_ORDER_BUTTON = (By.CLASS_NAME, 'Button_UltraBig__UU3Lp')  # Нижняя кнопка заказа
+    UPPER_ORDER_BUTTON = (By.XPATH, "//div[contains(@class, 'Header_Nav')]/child::button[contains(@class, 'Button_Button')]")  #  Вверхняя кнопка заказа
+    LOWER_ORDER_BUTTON = (By.XPATH, "//div[contains(@class, 'Home_FinishButton')]/child::button[contains(@class, 'Button_Button')]")  # Нижняя кнопка заказа
     NAME_FIELD = (By.XPATH, "//input[@placeholder='* Имя']")  # Поле Имя
     SECOND_NAME_FIELD = (By.XPATH, "//input[@placeholder='* Фамилия']")  # Поле Фамилия
     ADDRESS_FIELD = (By.XPATH, "//input[@placeholder='* Адрес: куда привезти заказ']")  # Поле адреса
@@ -13,7 +13,7 @@ class OrderPageLocators:
     CONTINUE_BUTTON = (By.XPATH, "//button[text() = 'Далее']")  # Кнопка Далее
     DELIVERY_DATE_FIELD = (By.XPATH, "//input[@placeholder='* Когда привезти самокат']")  # Поле даты доставки
     RENTAL_PERIOD_FIELD = (By.XPATH, "//div[text()='* Срок аренды']")  # Поле срока аренды
-    ORDER_BUTT = (By.XPATH, "//button[(@class = 'Button_Button__ra12g Button_Middle__1CSJM') and (text() = 'Заказать')]")  # Кнопка заказать
+    ORDER_BUTT = (By.XPATH, "//div[contains(@class, 'Order_Buttons')]/child::button[contains(@class, 'Button_Button') and (text() = 'Заказать')]")  # Кнопка заказать
     CONFIRM_ORDER_BUTTON = (By.XPATH, "//button[text() = 'Да']")  # Кнопка подверждение заказа
     SHOW_STATUS_BUTTON = (By.XPATH, "//button[text() = 'Посмотреть статус']")  # Кнопка посмотреть статус заказа
     SCOOTER_LOGO = (By.XPATH, "//img[@alt='Scooter']")  # Главное лого: самокат

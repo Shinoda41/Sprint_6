@@ -5,13 +5,11 @@ class Urls:
 
 
 class OrderData:
-    NAME = ['Фили', 'Кили']
-    SECOND_NAME = ['Филин', 'Килин']
-    ADDRESS = ['Проспект победы', 'Проспект мира']
-    METRO_STATION = ['Черкизовская', 'Сокольники']
-    PHONE_NUMBER = ['+79530379716', '+79530379715']
-    DELIVERY_DATE = ['16', '17']
-    RENT_PERIOD = ['двое суток', 'трое суток']
+    param = 'name, second_name, address, metro_station, phone_number, delivery_date, rent_period'
+    value = [
+        ['Фили', 'Филин', 'Проспект победы', 'Черкизовская', '+79530379716', '16', 'двое суток'],
+        ['Кили', 'Килин', 'Проспект мира', 'Сокольники', '+79530379715', '17', 'трое суток']
+    ]
 
 
 class QuestionData:

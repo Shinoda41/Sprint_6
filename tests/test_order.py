@@ -1,4 +1,5 @@
 import allure
+import pytest
 
 from data import Urls, OrderData
 from locators.order_page_locator import OrderPageLocators
@@ -26,38 +27,12 @@ class TestOrder:
         low_order_button.wait_and_find_element(OrderPageLocators.LOWER_ORDER_BUTTON).click()
         assert driver.current_url == Urls.ORDER_PAGE
 
-    @allure.title('Полная процедура заказа самоката, 1 вариант')
-    @allure.description(
-        'Заказываем самокат с 1 вариантов данных')
-    def test_order_scooter_1_data(self, driver,):
+    @allure.title('Полная процедура заказа самоката, 2 варианта данных')
+    @pytest.mark.parametrize(OrderData.param, OrderData.value)
+    def test_order_scooter(self, driver, name, second_name, address, metro_station, phone_number, delivery_date, rent_period):
         order = OrderPage(driver)
         order.open_page(Urls.ORDER_PAGE)
-        order.order_scooter(
-            OrderData.NAME[0],
-            OrderData.SECOND_NAME[0],
-            OrderData.ADDRESS[0],
-            OrderData.METRO_STATION[0],
-            OrderData.PHONE_NUMBER[0],
-            OrderData.DELIVERY_DATE[0],
-            OrderData.RENT_PERIOD[0]
-        )
-        assert order.find_status_button().is_displayed
-
-    @allure.title('Полная процедура заказа самоката, 2 вариант')
-    @allure.description(
-        'Заказываем самокат со вторым вариантом данных')
-    def test_order_scooter_2_data(self, driver,):
-        order = OrderPage(driver)
-        order.open_page(Urls.ORDER_PAGE)
-        order.order_scooter(
-            OrderData.NAME[1],
-            OrderData.SECOND_NAME[1],
-            OrderData.ADDRESS[1],
-            OrderData.METRO_STATION[1],
-            OrderData.PHONE_NUMBER[1],
-            OrderData.DELIVERY_DATE[1],
-            OrderData.RENT_PERIOD[1]
-        )
+        order.order_scooter(name, second_name, address, metro_station, phone_number, delivery_date, rent_period)
         assert order.find_status_button().is_displayed
 
     @allure.title('Переходим на главную страницу через главное лого')

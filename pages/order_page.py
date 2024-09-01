@@ -1,10 +1,10 @@
 import allure
 
-from pages.main_page import MainPage
+from pages.base_page import BasePage
 from locators.order_page_locator import OrderPageLocators
 
 
-class OrderPage(MainPage):
+class OrderPage(BasePage):
     @allure.step('Заполняем поле Имя')
     def set_name(self, name):
         name_input = self.wait_and_find_element(OrderPageLocators.NAME_FIELD)
